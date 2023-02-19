@@ -7,7 +7,7 @@ const Engineer = require('./lib/Engineer')
 
 
 
-let addManager = () => {
+const addManager = () => {
     inquirer
     .prompt([
         {
@@ -36,7 +36,7 @@ let addManager = () => {
     ])
 }
 
-let teamBuilder = () => {
+const teamBuilder = () => {
     inquirer
     .prompt([
         {
@@ -52,7 +52,7 @@ let teamBuilder = () => {
     ])
 }
 
-let addEngineer = () => {
+const addEngineer = () => {
     inquirer
     .prompt([
         {
@@ -81,7 +81,7 @@ let addEngineer = () => {
     ])
 }
 
-let addIntern = () => {
+const addIntern = () => {
     inquirer
     .prompt([
         {
