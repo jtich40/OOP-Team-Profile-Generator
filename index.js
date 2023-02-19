@@ -4,6 +4,7 @@ const fs = require('fs')
 const Manager = require('./lib/Manager')
 const Intern = require('./lib/Intern')
 const Engineer = require('./lib/Engineer')
+const teamMembers = []
 
 
 
@@ -34,6 +35,16 @@ const addManager = () => {
             message: "What is the office number of the team manager?"
         },
     ])
+    .then(answers => {
+        const manager = new Manager(
+            answers.managerName,
+            answers.managerId,
+            answers.managerEmail,
+            answers.managerOfficeNum
+        )
+        teamMembers.push(manager) 
+        teamBuilder()
+    })
 }
 
 const teamBuilder = () => {
@@ -79,6 +90,16 @@ const addEngineer = () => {
             message: "What is the GitHub username of the team engineer?"
         },
     ])
+    .then(answers => {
+        const engineer = new Engineer(
+            answers.engineerName,
+            answers.engineerId,
+            answers.engineerEmail,
+            answers.engineerGithub
+        )
+        teamMembers.push(engineer) 
+        teamBuilder()
+    })
 }
 
 const addIntern = () => {
@@ -108,4 +129,15 @@ const addIntern = () => {
             message: "What school did the team intern attend?"
         },
     ])
+    .then(answers => {
+        const intern = new Intern(
+            answers.internName,
+            answers.internId,
+            answers.internEmail,
+            answers.internSchool
+        )
+        teamMembers.push(intern) 
+        teamBuilder()
+    })
 }
+
