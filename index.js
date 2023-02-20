@@ -5,6 +5,7 @@ const Manager = require('./lib/Manager')
 const Intern = require('./lib/Intern')
 const Engineer = require('./lib/Engineer')
 const teamMembers = []
+const renderHtml = require('./src/template')
 
 
 
@@ -35,12 +36,12 @@ const addManager = () => {
             message: "What is the office number of the team manager?"
         },
     ])
-    .then(answers => {
+    .then(res => {
         const manager = new Manager(
-            answers.managerName,
-            answers.managerId,
-            answers.managerEmail,
-            answers.managerOfficeNum
+            res.managerName,
+            res.managerId,
+            res.managerEmail,
+            res.managerOfficeNum
         )
         teamMembers.push(manager) 
         teamBuilder()
@@ -61,6 +62,21 @@ const teamBuilder = () => {
             ]
         }
     ])
+    .then(choice => {
+        if(choice.teamOption === 'Engineer') {
+            addEngineer()
+        }
+
+        if(choice.teamOption === 'Intern') {
+            addIntern()
+        }
+
+        if(choice.teamOption === "The team is complete, no additional members are needed.") {
+            console.log("Let's build your team choice")
+            fs.writeFileSync('./dist/index.html', renderHtml(teamMembers))
+        }
+
+    })
 }
 
 const addEngineer = () => {
@@ -90,12 +106,12 @@ const addEngineer = () => {
             message: "What is the GitHub username of the team engineer?"
         },
     ])
-    .then(answers => {
+    .then(res => {
         const engineer = new Engineer(
-            answers.engineerName,
-            answers.engineerId,
-            answers.engineerEmail,
-            answers.engineerGithub
+            res.engineerName,
+            res.engineerId,
+            res.engineerEmail,
+            res.engineerGithub
         )
         teamMembers.push(engineer) 
         teamBuilder()
@@ -129,12 +145,12 @@ const addIntern = () => {
             message: "What school did the team intern attend?"
         },
     ])
-    .then(answers => {
+    .then(res => {
         const intern = new Intern(
-            answers.internName,
-            answers.internId,
-            answers.internEmail,
-            answers.internSchool
+            res.internName,
+            res.internId,
+            res.internEmail,
+            res.internSchool
         )
         teamMembers.push(intern) 
         teamBuilder()
