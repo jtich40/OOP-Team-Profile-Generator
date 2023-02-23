@@ -10,7 +10,7 @@ const renderHtml = (employees) => {
                 <h4>${employee.getRole()}</h4>
                 <ul>
                     <li>ID Number: ${employee.getId()}</li>
-                    <li>Email: ${employee.getEmail()}</li>
+                    <li>Email: <a href="mailto:${employee.getEmail()}">${employee.getEmail()}</a></li>
                     <li>Office Number: ${employee.getOfficeNumber()}</li>
                 </ul>
             </div>
@@ -25,8 +25,8 @@ const renderHtml = (employees) => {
                 <h4>${employee.getRole()}</h4>
                 <ul>
                     <li>ID Number: ${employee.getId()}</li>
-                    <li>Email: ${employee.getEmail()}</li>
-                    <li>GitHub: ${employee.getGithub()}</li>
+                    <li>Email: <a href="mailto:${employee.getEmail()}">${employee.getEmail()}</a></li>
+                    <li>GitHub: <a href="https://github.com/${employee.getGithub()}" target="_blank">${employee.getGithub()}</a></li>
                 </ul>
             </div>
             `
@@ -40,7 +40,7 @@ const renderHtml = (employees) => {
                 <h4>${employee.getRole()}</h4>
                 <ul>
                     <li>ID Number: ${employee.getId()}</li>
-                    <li>Email: ${employee.getEmail()}</li>
+                    <li>Email: <a href="mailto:${employee.getEmail()}">${employee.getEmail()}</a></li>
                     <li>School: ${employee.getSchool()}</li>
                 </ul>
             </div>
@@ -49,7 +49,7 @@ const renderHtml = (employees) => {
 
     });
 
-    // html boilerplate to be filled with additional html for each chosen team member
+    // html boilerplate filled with additional html for team members based on user input
     const html = `
     <!DOCTYPE html>
     <html lang="en">
