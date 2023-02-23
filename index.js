@@ -76,7 +76,7 @@ const runApp = () => {
 
                 if (choice.teamOption === "The team is complete, no additional members are needed.") {
                     // renders html file that is filled with team members based on user input
-                    console.log("Your team's website will be built now!")
+                    console.log("Success! Your team website has been built!")
                     fs.writeFileSync('./dist/index.html', renderHtml(teamMembers))
                 }
 
