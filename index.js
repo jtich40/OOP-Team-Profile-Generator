@@ -7,7 +7,7 @@ const Engineer = require('./lib/Engineer')
 const teamMembers = []
 const renderHtml = require('./src/template')
 
-// starts the app when "npm start" or "node index.js" is entered in terminal
+// starts the app when "node index.js" is entered in terminal
 const runApp = () => {
     console.log("Welcome to the team profile generator! Simply follow the prompts below to build a team according to your specifications.")
     // starts team building process with manager role
